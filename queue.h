@@ -19,10 +19,10 @@ class queue
 {
 public:
     void push(T2 data);
-    T2 pop();
-    T2 top();
+    void pop();
+    T2 &top();
     int Size();
-    bool isEmpty();
+    bool empty();
 
 private:
     node<T2> *beginNode = nullptr;
@@ -53,7 +53,7 @@ void queue<T3>::push(T3 data)
 }
 
 template <class T4>
-T4 queue<T4>::pop()
+void queue<T4>::pop()
 {
     size--;
     // storge the node after beginNode
@@ -67,7 +67,7 @@ T4 queue<T4>::pop()
 
     // recover beginNode
     beginNode = tempNode;
-    return temp;
+    return;
 }
 
 template <class T5>
@@ -77,13 +77,13 @@ int queue<T5>::Size()
 }
 
 template <class T6>
-bool queue<T6>::isEmpty()
+bool queue<T6>::empty()
 {
-    return size != 0;
+    return size == 0;
 }
 
 template <class T7>
-T7 queue<T7>::top()
+T7 &queue<T7>::top()
 {
     return beginNode->data;
 }
